@@ -12,6 +12,8 @@ LINE = '3:07 AM. The milk expired on Tuesday and has started making decisions fo
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 140:
+        raise ValueError(f"entry must be 1-140 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
